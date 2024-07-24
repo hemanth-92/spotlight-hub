@@ -9,7 +9,7 @@ export default function Home() {
       <div className="col-span-12 shadow-lg">
         <Header />
       </div>
-      <div className="col-span-12 bg-red-500 p-4 shadow-lg sm:col-span-2">
+      <div className="row-span-2 col-span-12 bg-red-500 p-4 shadow-lg sm:col-span-2">
         Sidebar
       </div>
       <main className="col-span-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-slate-200 p-4 shadow-lg sm:col-span-10 gap-4">
