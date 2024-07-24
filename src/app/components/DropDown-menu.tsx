@@ -8,9 +8,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 export default function Dropdown() {
   return (
-    <div className="flex items-center bg-black p-2 text-white border border-white rounded-md">
+    <div className="flex items-center rounded-md border border-white bg-black p-0.5 text-white">
       <DropdownMenu>
-        <DropdownMenuTrigger className="text-4xl" >≡</DropdownMenuTrigger>
+        <DropdownMenuTrigger className="px-3 text-2xl">≡</DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuLabel>DashBoard</DropdownMenuLabel>
           <DropdownMenuSeparator />
