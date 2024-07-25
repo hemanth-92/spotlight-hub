@@ -12,7 +12,7 @@ export default function Home() {
       <div className="col-span-12 row-span-2 bg-[#606060] p-4 shadow-lg sm:col-span-2">
         Sidebar
       </div>
-      <main className="col-span-12 grid grid-cols-1 gap-4 bg-[#D9D9D9] p-4 shadow-lg sm:col-span-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <main className="col-span-12 grid grid-cols-1 gap-x-4 gap-y-8 bg-[#D9D9D9] p-4 shadow-lg sm:col-span-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {Array.from({ length: numberOfCards }, (_, index) => (
           <div key={index} className="flex items-center justify-center">
             <ImageCard ImageUrl={`/github.jpeg`} />
