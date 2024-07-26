@@ -31,13 +31,14 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import ImageCard from "./components/ImageCard"
+import ImageCard from "./_components/ImageCard"
+import { ModeToggle } from "@/components/toggle-theme"
 
 const numberOfCards = 40;
 
 export default function Dashboard() {
   return (
-    <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr] overflow-hidden">
+    <div className="grid h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr] overflow-hidden">
       <div className="hidden border-r bg-muted/40 md:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
@@ -110,7 +111,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col h-screen">
         <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
           <Sheet>
             <SheetTrigger asChild>
@@ -201,24 +202,27 @@ export default function Dashboard() {
               </div>
             </form>
           </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="secondary" size="icon" className="rounded-full">
-                <CircleUser className="h-5 w-5" />
-                <span className="sr-only">Toggle user menu</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Support</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <div className="flex gap-2" >
+            <ModeToggle />
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="secondary" size="icon" className="rounded-full">
+                  <CircleUser className="h-5 w-5" />
+                  <span className="sr-only">Toggle user menu</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Settings</DropdownMenuItem>
+                <DropdownMenuItem>Support</DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Logout</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </header>
-        <main className="grid grid-cols-1 gap-x-4 gap-y-8 bg-[#D9D9D9] p-4 shadow-lg sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 overflow-hidden">
+        <main className="grid grid-cols-1 gap-x-4 gap-y-8 bg-muted p-4 shadow-lg sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 flex-1 overflow-y-auto">
         {Array.from({ length: numberOfCards }, (_, index) => (
           <div key={index} className="flex items-center justify-center">
             <ImageCard ImageUrl={`/github.jpeg`} />
