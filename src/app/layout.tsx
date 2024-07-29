@@ -17,9 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <title>Spotlight Hub</title>
       <Provider>
         <body className={inter.className}>{children}</body>
       </Provider>
+      </head>
     </html>
   );
 }
