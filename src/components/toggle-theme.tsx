@@ -1,6 +1,6 @@
 "use client";
 
-import { LaptopIcon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import { Laptop, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { useMounted } from "@/hooks/use-mounted";
@@ -11,17 +11,17 @@ const OptionMode = [
   {
     value: "light",
     label: "Light",
-    icon: SunIcon,
+    icon: Sun,
   },
   {
     value: "dark",
     label: "Dark",
-    icon: MoonIcon,
+    icon: Moon,
   },
   {
     value: "system",
     label: "System",
-    icon: LaptopIcon,
+    icon: Laptop,
   },
 ] satisfies { value: string; label: string; icon: any }[];
 
@@ -37,8 +37,8 @@ export function ModeToggle({ isDesktop = true }: ModeToggleProps) {
       <Popover>
         <PopoverTrigger asChild>
           <Button variant="ghost" size="icon" className="size-9">
-            <SunIcon className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <MoonIcon className="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            <Sun className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <Moon className="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
             <span className="sr-only">Toggle theme</span>
           </Button>
         </PopoverTrigger>
@@ -69,8 +69,8 @@ export function ModeToggle({ isDesktop = true }: ModeToggleProps) {
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         className="size-9 flex gap-2 w-full justify-start"
       >
-        <SunIcon className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 size-4" />
-        <MoonIcon className="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 size-4" />
+        <Sun className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 size-4" />
+        <Moon className="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 size-4" />
         <span>{theme}</span>
       </Button>
     )

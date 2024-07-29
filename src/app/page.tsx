@@ -31,7 +31,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import ImageCard from "./_components/ImageCard"
+import ImageCard from "@/components/ImageCard"
 import { ModeToggle } from "@/components/toggle-theme"
 
 const numberOfCards = 40;
