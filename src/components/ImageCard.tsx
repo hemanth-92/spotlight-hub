@@ -10,7 +10,7 @@ interface ImageCardProps {
 export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
   return (
     <div
-      className={cn("flex flex-col rounded-xl bg-white shadow-lg", className)}
+      className={cn("flex flex-col rounded-xl bg-accent shadow-lg", className)}
     >
       <Image
         src={ImageUrl}
@@ -21,15 +21,15 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
       />
       <div className="flex flex-col p-2">
         <div className="flex w-full justify-between p-2">
-          <div className="text-2xl font-bold text-[#1E1E1E]">Title</div>
-          <div className="rounded-full bg-[#948888] px-4 py-1 font-bold text-[#000000]">
+          <div className="text-2xl font-bold text-foreground">Title</div>
+          <div className="rounded-full bg-[#948888] px-4 py-1 font-bold text-foreground">
             .png
           </div>
         </div>
         <div className="mt-4 flex w-full justify-between p-2">
           <div className="flex w-7/12 gap-1">
-            <div className="text-[#A3A3A3]">alt</div>
-            <div className="flex items-center pt-0.5 text-sm text-[#1E1E1E]">
+            <div className="text-muted-foreground">alt</div>
+            <div className="flex items-center pt-0.5 text-sm text-foreground">
               This is some alt
             </div>
           </div>

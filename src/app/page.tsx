@@ -202,8 +202,8 @@ export default function Dashboard() {
               </div>
             </form>
           </div>
-          <div className="flex gap-2" >
-            <ModeToggle />
+          <div className="flex gap-2 justify-center items-center" >
+            <ModeToggle/>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="secondary" size="icon" className="rounded-full">
@@ -222,7 +222,7 @@ export default function Dashboard() {
             </DropdownMenu>
           </div>
         </header>
-        <main className="grid grid-cols-1 gap-x-4 gap-y-8 bg-muted p-4 shadow-lg sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 flex-1 overflow-y-auto">
+        <main className="grid grid-cols-1 gap-x-4 gap-y-8 bg-muted/40 p-4 shadow-lg sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 flex-1 overflow-y-auto">
         {Array.from({ length: numberOfCards }, (_, index) => (
           <div key={index} className="flex items-center justify-center">
             <ImageCard ImageUrl={`/github.jpeg`} />
