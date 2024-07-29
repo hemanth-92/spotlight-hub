@@ -14,21 +14,21 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
       className={cn("flex flex-col rounded-xl bg-accent shadow-lg", className)}
     >
       <div className="relative">
-      <Image
-        src={ImageUrl}
-        alt="logo"
-        width={300}
-        height={300}
-        className="h-52 rounded-t-xl object-cover"
-      />
-      <div className="absolute top-2 right-2 flex space-x-2 z-10">
-          <button className="bg-white/0 backdrop-blur-md rounded-md p-2 shadow-md">
+        <Image
+          src={ImageUrl}
+          alt="logo"
+          width={300}
+          height={300}
+          className="h-52 rounded-t-xl object-cover"
+        />
+        <div className="absolute right-2 top-2 z-10 flex space-x-2">
+          <button className="rounded-md bg-white/0 p-2 shadow-md backdrop-blur-md">
             <Link className="h-4 w-4 text-icon-foreground hover:text-icon" />
           </button>
-          <button className="bg-white/0 backdrop-blur-md rounded-md p-2 shadow-md">
+          <button className="rounded-md bg-white/0 p-2 shadow-md backdrop-blur-md">
             <Copy className="h-4 w-4 text-icon-foreground hover:text-icon" />
           </button>
-          <button className="bg-white/0 backdrop-blur-md rounded-md p-2 shadow-md">
+          <button className="rounded-md bg-white/0 p-2 shadow-md backdrop-blur-md">
             <EllipsisVertical className="h-4 w-4 text-icon-foreground hover:text-icon" />
           </button>
         </div>
