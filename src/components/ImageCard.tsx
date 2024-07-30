@@ -85,13 +85,13 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
             </PopoverTrigger>
             <PopoverContent
               align="end"
-              className="w-full bg-white/10 p-3 shadow-md backdrop-blur-md"
+              className="w-full border-0 bg-white/10 px-1 py-1 shadow-md backdrop-blur-md"
             >
               <div className="flex flex-col">
-                <button className="text-left text-lg">Rename</button>
-                <button className="text-left text-lg">Resize</button>
-                <button className="text-left text-lg">Edit</button>
-                <button className="text-left text-lg">Delete</button>
+                <button className="flex items-center text-left text-md text-icon-foreground rounded-md bg-white/0 px-1.5 py-1 hover:backdrop-blur-lg hover:text-icon">Rename</button>
+                <button className="flex items-center text-left text-md text-icon-foreground rounded-md bg-white/0 px-1.5 py-1 hover:backdrop-blur-lg hover:text-icon">Resize</button>
+                <button className="flex items-center text-left text-md text-icon-foreground rounded-md bg-white/0 px-1.5 py-1 hover:backdrop-blur-lg hover:text-icon">Edit</button>
+                <button className="flex items-center text-left text-md text-icon-foreground rounded-md bg-white/0 px-1.5 py-1 hover:backdrop-blur-lg hover:text-icon">Delete</button>
               </div>
             </PopoverContent>
           </Popover>
