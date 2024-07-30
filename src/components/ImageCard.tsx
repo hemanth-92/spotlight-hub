@@ -54,22 +54,22 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
         <div className="absolute right-2 top-2 z-10 flex space-x-2">
           <button
             onClick={toggleIcon1}
-            className="rounded-md bg-white/0 p-2 shadow-md backdrop-blur-md"
+            className="rounded-md bg-white/0 p-2 text-icon-foreground shadow-md backdrop-blur-md hover:text-icon"
           >
             {icon1 === "link" ? (
-              <Link className="h-4 w-4 text-icon-foreground transition-all hover:text-icon" />
+              <Link className="h-4 w-4 transition-all" />
             ) : (
-              <Edit className="h-4 w-4 text-icon-foreground transition-all hover:text-icon" />
+              <Edit className="h-4 w-4 transition-all" />
             )}
           </button>
           <button
             onClick={toggleIcon2}
-            className="rounded-md bg-white/0 p-2 shadow-md backdrop-blur-md"
+            className="rounded-md bg-white/0 p-2 text-icon-foreground shadow-md backdrop-blur-md hover:text-icon"
           >
             {icon2 === "copy" ? (
-              <Copy className="h-4 w-4 text-icon-foreground transition-all hover:text-icon" />
+              <Copy className="h-4 w-4 transition-all" />
             ) : (
-              <Check className="h-4 w-4 text-icon-foreground transition-all hover:text-icon" />
+              <Check className="h-4 w-4 transition-all" />
             )}
           </button>
           <Popover>
@@ -78,9 +78,9 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
                 onClick={handlePopoverToggle}
                 aria-expanded={isPopoverOpen}
                 aria-label="More options"
-                className="rounded-md bg-white/0 p-2 shadow-md backdrop-blur-md"
+                className="rounded-md bg-white/0 p-2 text-icon-foreground shadow-md backdrop-blur-md hover:text-icon"
               >
-                <EllipsisVertical className="h-4 w-4 text-icon-foreground transition-all hover:text-icon" />
+                <EllipsisVertical className="h-4 w-4 transition-all" />
               </button>
             </PopoverTrigger>
             <PopoverContent
