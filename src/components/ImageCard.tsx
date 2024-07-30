@@ -55,46 +55,38 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
           height={300}
           className="h-52 rounded-t-xl object-cover"
         />
+
         <div className="absolute right-2 top-2 z-10 flex space-x-2">
-          <Image
-            src={ImageUrl}
-            alt="logo"
-            width={300}
-            height={300}
-            className="h-52 rounded-t-xl object-cover"
-          />
-          <div className="absolute right-2 top-2 z-10 flex space-x-2">
-            <button
-              onClick={toggleIcon1}
-              className="rounded-md bg-white/0 p-2 shadow-md backdrop-blur-md"
-            >
-              {icon1 === "link" ? (
-                <Link className="h-4 w-4 text-icon-foreground transition-all hover:text-icon dark:rotate-0 dark:scale-100" />
-              ) : (
-                <Edit className="h-4 w-4 text-icon-foreground transition-all hover:text-icon dark:rotate-0 dark:scale-100" />
-              )}
-            </button>
-            <button
-              onClick={toggleIcon2}
-              className="rounded-md bg-white/0 p-2 shadow-md backdrop-blur-md"
-            >
-              {icon2 === "copy" ? (
-                <Copy className="h-4 w-4 text-icon-foreground transition-all hover:text-icon" />
-              ) : (
-                <Check className="h-4 w-4 text-icon-foreground transition-all hover:text-icon" />
-              )}
-            </button>
-            <button
-              onClick={toggleIcon3}
-              className="rounded-md bg-white/0 p-2 shadow-md backdrop-blur-md"
-            >
-              {icon3 === "ellipsis" ? (
-                <EllipsisVertical className="h-4 w-4 text-icon-foreground transition-all hover:text-icon" />
-              ) : (
-                <Trash2 className="h-4 w-4 text-icon-foreground transition-all hover:text-icon" />
-              )}
-            </button>
-          </div>
+          <button
+            onClick={toggleIcon1}
+            className="rounded-md bg-white/0 p-2 text-icon-foreground shadow-md backdrop-blur-md hover:text-icon"
+          >
+            {icon1 === "link" ? (
+              <Link className="h-4 w-4 transition-all dark:rotate-0 dark:scale-100" />
+            ) : (
+              <Edit className="h-4 w-4 transition-all dark:rotate-0 dark:scale-100" />
+            )}
+          </button>
+          <button
+            onClick={toggleIcon2}
+            className="rounded-md bg-white/0 p-2 text-icon-foreground shadow-md backdrop-blur-md hover:text-icon"
+          >
+            {icon2 === "copy" ? (
+              <Copy className="h-4 w-4 transition-all" />
+            ) : (
+              <Check className="h-4 w-4 transition-all" />
+            )}
+          </button>
+          <button
+            onClick={toggleIcon3}
+            className="rounded-md bg-white/0 p-2 text-icon-foreground shadow-md backdrop-blur-md hover:text-icon"
+          >
+            {icon3 === "ellipsis" ? (
+              <EllipsisVertical className="h-4 w-4 transition-all" />
+            ) : (
+              <Trash2 className="h-4 w-4 transition-all" />
+            )}
+          </button>
         </div>
         <div className="flex flex-col p-2">
           <div className="flex w-full justify-between p-2">
