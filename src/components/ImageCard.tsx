@@ -3,8 +3,15 @@
 import { cn } from "@/lib/utils";
 import { type ClassValue } from "clsx";
 import Image from "next/image";
-import { EllipsisVertical, Copy, Link, Check, Edit } from "lucide-react";
-import { useState } from "react";
+import {
+  EllipsisVertical,
+  Copy,
+  Link,
+  Check,
+  Edit,
+  Pencil,
+} from "lucide-react";
+import { SetStateAction, useState, useRef, useEffect } from "react";
 import {
   Popover,
   PopoverContent,
@@ -25,6 +32,42 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
     setIsPopoverOpen(!isPopoverOpen);
   };
 
+  const [isEditing, setIsEditing] = useState(false);
+  const [content, setContent] = useState("This is some alt text");
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleSaveClick = () => {
+    setIsEditing(false);
+  };
+
+  const handleChange = (event: {
+    target: { value: SetStateAction<string> };
+  }) => {
+    setContent(event.target.value);
+  };
+  useEffect(() => {
+    if (isEditing && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isEditing]);
+
+  const handleKeyDown = (e: { key: string }) => {
+    if (e.key === "Enter") {
+      if (content.trim() === "") {
+        setError("Content cannot be empty");
+        inputRef.current?.focus(); // Keep focus on the input if content is empty
+      } else {
+        setIsEditing(false);
+        setError(null); // Clear error message when exiting editing mode
+      }
+    }
+  };
+
   const toggleIcon1 = () => {
     setIcon1((prevIcon) => (prevIcon === "link" ? "check" : "link"));
     setTimeout(() => {
@@ -41,7 +84,7 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
 
   return (
     <div
-      className={cn("flex flex-col rounded-xl bg-accent shadow-lg", className)}
+      className={cn("flex flex-col rounded-xl bg-muted/50 shadow-lg", className)}
     >
       <div className="relative">
         <Image
@@ -88,10 +131,18 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
               className="w-full border-0 bg-white/10 px-1 py-1 shadow-md backdrop-blur-md"
             >
               <div className="flex flex-col">
-                <button className="flex items-center text-left text-md text-icon-foreground rounded-md bg-white/0 px-1.5 py-1 hover:backdrop-blur-lg hover:text-icon">Rename</button>
-                <button className="flex items-center text-left text-md text-icon-foreground rounded-md bg-white/0 px-1.5 py-1 hover:backdrop-blur-lg hover:text-icon">Resize</button>
-                <button className="flex items-center text-left text-md text-icon-foreground rounded-md bg-white/0 px-1.5 py-1 hover:backdrop-blur-lg hover:text-icon">Edit</button>
-                <button className="flex items-center text-left text-md text-icon-foreground rounded-md bg-white/0 px-1.5 py-1 hover:backdrop-blur-lg hover:text-icon">Delete</button>
+                <button className="text-md flex items-center rounded-md bg-white/0 px-1.5 py-1 text-left text-icon-foreground hover:text-icon hover:backdrop-blur-lg">
+                  Rename
+                </button>
+                <button className="text-md flex items-center rounded-md bg-white/0 px-1.5 py-1 text-left text-icon-foreground hover:text-icon hover:backdrop-blur-lg">
+                  Resize
+                </button>
+                <button className="text-md flex items-center rounded-md bg-white/0 px-1.5 py-1 text-left text-icon-foreground hover:text-icon hover:backdrop-blur-lg">
+                  Edit
+                </button>
+                <button className="text-md flex items-center rounded-md bg-white/0 px-1.5 py-1 text-left text-icon-foreground hover:text-icon hover:backdrop-blur-lg">
+                  Delete
+                </button>
               </div>
             </PopoverContent>
           </Popover>
@@ -106,9 +157,33 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
         </div>
         <div className="mt-4 flex w-full justify-between p-2">
           <div className="flex w-7/12 gap-1">
-            <div className="text-muted-foreground">alt</div>
-            <div className="flex items-center pt-0.5 text-sm text-foreground">
-              This is some alt
+            <div className="flex items-center text-muted-foreground">alt</div>
+            <div className="flex items-center overflow-y-hidden pt-0.5 text-sm text-foreground">
+              {isEditing ? (
+                <div className="flex w-full items-center">
+                  <input
+                    type="text"
+                    value={content}
+                    onChange={handleChange}
+                    onKeyDown={handleKeyDown}
+                    className="w-full bg-transparent text-foreground"
+                    aria-label="Edit content"
+                    ref={inputRef}
+                  />
+                  <Pencil className="ml-2 h-4 w-4" />
+                </div>
+              ) : (
+                <div className="flex w-full items-center">
+                  <p className="">{content}</p>
+                  <button
+                    className="ml-2 rounded p-2"
+                    onClick={handleEditClick}
+                    aria-label="Edit content"
+                  >
+                    <Pencil className="h-4 w-4" />
+                  </button>
+                </div>
+              )}
             </div>
           </div>
           <div className="flex items-center text-sm text-png">600 x 600</div>
