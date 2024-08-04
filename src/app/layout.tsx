@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Provider } from "@/components/provider";
 import { Toaster } from "sonner";
-import { SiteHeader } from "@/components/layouts/site-header";
 import { siteConfig } from "@/config/site-config";
 import { cn } from "@/lib/utils";
 
@@ -38,7 +37,6 @@ export default function RootLayout({
         )}
       >
         <Provider>
-          <SiteHeader />
           {children}
           <Toaster richColors position="bottom-center" />
         </Provider>
