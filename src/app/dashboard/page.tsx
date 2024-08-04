@@ -39,7 +39,7 @@ const numberOfCards = 40;
 export default function Dashboard() {
   return (
     <div className="grid h-screen w-full overflow-hidden md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
-      <div className="hidden border-r bg-muted/40 md:block">
+      <div className="hidden border-r bg-background md:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
             <Link href="/" className="flex items-center gap-2 font-semibold">
@@ -112,7 +112,7 @@ export default function Dashboard() {
         </div>
       </div>
       <div className="flex h-screen flex-col">
-        <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
+        <header className="flex h-14 items-center gap-4 border-b bg-background px-4 lg:h-[60px] lg:px-6">
           <Sheet>
             <SheetTrigger asChild>
               <Button
@@ -223,7 +223,7 @@ export default function Dashboard() {
             </DropdownMenu>
           </div>
         </header>
-        <main className="grid flex-1 grid-cols-1 gap-x-4 gap-y-8 overflow-y-auto bg-muted/40 p-4 shadow-lg sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <main className="grid flex-1 grid-cols-1 gap-x-4 gap-y-8 overflow-y-auto bg-background p-4 shadow-lg sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Array.from({ length: numberOfCards }, (_, index) => (
             <div key={index} className="flex items-center justify-center">
               <ImageCard ImageUrl={`/github.jpeg`} />
