@@ -53,7 +53,7 @@ export const SiteHeader = () => {
           </div>
           <div className="xs:gap-2 flex items-center gap-2">
             <SearchPopOver />
-            <Button className="h-6">Login</Button>
+            <Button className="h-6">Sign in</Button>
             <div className="xs:hidden flex">
               <ModeToggle />
             </div>

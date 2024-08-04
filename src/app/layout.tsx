@@ -12,8 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Spotlight Hub",
   description:
-    "Spotlight Hub is a comprehensive image management solution that leverages GitHub for storage, APIs for dynamic image handling, and AI for image enhancement and smart cropping. It integrates with jsDelivr CDN for efficient image serving and includes features to simplify the user experience in uploading and managing images within their projects.",
-  creator: "Hemanth, Varma",
+    "Spotlight Hub is a comprehensive image management solution that leverages GitHub for storage, APIs for dynamic image handling, and AI for image enhancement and smart cropping. It integrates with jsDelivr CDN for efficient image serving",
   metadataBase: new URL(siteConfig.url),
   openGraph: {
     type: "website",
