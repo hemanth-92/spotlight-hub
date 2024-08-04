@@ -5,6 +5,7 @@ import { Provider } from "@/components/provider";
 import { Toaster } from "sonner";
 import { siteConfig } from "@/config/site-config";
 import { cn } from "@/lib/utils";
+import SessionWrapper from "@/components/sessionWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,18 +30,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          inter.className,
-          "flex min-h-screen flex-col scroll-smooth supports-[min-h-[100dvh]]:min-h-[100dvh]",
-        )}
-      >
-        <Provider>
-          {children}
-          <Toaster richColors position="bottom-center" />
-        </Provider>
-      </body>
-    </html>
+    <SessionWrapper>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={cn(
+            inter.className,
+            "flex min-h-screen flex-col scroll-smooth supports-[min-h-[100dvh]]:min-h-[100dvh]",
+          )}
+        >
+          <Provider>
+            {children}
+            <Toaster richColors position="bottom-center" />
+          </Provider>
+        </body>
+      </html>
+    </SessionWrapper>
   );
 }
