@@ -32,7 +32,7 @@ export default function Home() {
           <Balancer>{siteConfig.description}</Balancer>
         </div>
         <div>
-          <LoginButton text="get started" className="text-lg"/>
+          <LoginButton text="Get started" className="text-lg"/>
         </div>
       </section>
     </main>
