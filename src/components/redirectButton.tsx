@@ -7,16 +7,25 @@ import { type ClassValue } from "clsx";
 import { cn } from "@/lib/utils";
 
 interface loginText {
+  redirect: string;
   text: string;
   className?: ClassValue;
 }
 
-export default function LoginButton({ text,className }: loginText) {
+export default function RedirectButton({
+  redirect,
+  text,
+  className,
+}: loginText) {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push("/login");
+    router.push(redirect);
   };
 
-  return <Button className={cn(className)}  onClick={handleClick}>{text}</Button>;
+  return (
+    <Button className={cn(className)} onClick={handleClick}>
+      {text}
+    </Button>
+  );
 }
