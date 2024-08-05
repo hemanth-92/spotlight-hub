@@ -38,6 +38,7 @@ import { ModeToggle } from "@/components/toggle-theme";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import withAuth from "@/components/withAuth";
+import { redirect } from "next/navigation";
 
 const numberOfCards = 40;
 
@@ -233,6 +234,7 @@ const Dashboard = () => {
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>Settings</DropdownMenuItem>
                 <DropdownMenuItem>Support</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => redirect("/")}>Docs</DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={() => signOut({ callbackUrl: "/" })}>
                   Logout
