@@ -14,6 +14,8 @@ import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { Menu } from "lucide-react";
 import { SideBar } from "../side-bar";
 import { Button } from "@/components/ui/button";
+import { redirect } from "next/navigation";
+import LoginButton from "../loginButton";
 
 export const SiteHeader = () => {
   const pathname = usePathname();
@@ -53,7 +55,7 @@ export const SiteHeader = () => {
           </div>
           <div className="xs:gap-2 flex items-center gap-2">
             <SearchPopOver />
-            <Button className="h-6">Sign in</Button>
+            <LoginButton text="Sign in" className="h-6" />
             <div className="xs:hidden flex">
               <ModeToggle />
             </div>

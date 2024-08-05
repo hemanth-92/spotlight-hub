@@ -1,7 +1,9 @@
+"use client";
+
 import Balancer from "react-wrap-balancer";
-import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site-config";
 import { SiteHeader } from "@/components/layouts/site-header";
+import LoginButton from "@/components/loginButton";
 
 export default function Home() {
   return (
@@ -30,7 +32,7 @@ export default function Home() {
           <Balancer>{siteConfig.description}</Balancer>
         </div>
         <div>
-          <Button>Get started</Button>
+          <LoginButton text="get started" className="text-lg"/>
         </div>
       </section>
     </main>

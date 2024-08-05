@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   Bell,
@@ -33,10 +35,15 @@ import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import ImageCard from "@/components/ImageCard";
 import { ModeToggle } from "@/components/toggle-theme";
+import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
+import withAuth from "@/components/withAuth";
 
 const numberOfCards = 40;
 
-export default function Dashboard() {
+const Dashboard = () => {
+  const { data: session } = useSession();
+
   return (
     <div className="grid h-screen w-full overflow-hidden md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-background md:block">
@@ -208,17 +215,28 @@ export default function Dashboard() {
                   size="icon"
                   className="rounded-full"
                 >
-                  <CircleUser className="h-5 w-5" />
+                  <Image
+                    src={session?.user?.image as string}
+                    height={50}
+                    width={50}
+                    className="rounded-full p-0.5"
+                    alt={""}
+                  ></Image>
+
                   <span className="sr-only">Toggle user menu</span>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuContent align="end" className="w-20">
+                <DropdownMenuLabel className="truncate">
+                  {session?.user?.name}
+                </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>Settings</DropdownMenuItem>
                 <DropdownMenuItem>Support</DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Logout</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => signOut({ callbackUrl: "/" })}>
+                  Logout
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -233,4 +251,6 @@ export default function Dashboard() {
       </div>
     </div>
   );
-}
+};
+
+export default withAuth(Dashboard);

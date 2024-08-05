@@ -84,7 +84,10 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
 
   return (
     <div
-      className={cn("flex flex-col rounded-xl bg-muted/50 shadow-lg", className)}
+      className={cn(
+        "flex flex-col rounded-xl bg-muted/50 shadow-lg",
+        className,
+      )}
     >
       <div className="relative">
         <Image
