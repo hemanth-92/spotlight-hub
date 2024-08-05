@@ -4,10 +4,12 @@ import { JWT } from "next-auth/jwt";
 declare module "next-auth" {
   interface User extends DefaultUser {
     oauthToken?: string;
+    username :string;
   }
 
   interface Session extends DefaultSession {
     oauthToken?: string;
+    user : User
   }
 }
 
