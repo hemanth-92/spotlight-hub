@@ -9,12 +9,23 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Balancer from "react-wrap-balancer";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Login() {
+  const { status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      router?.push("/dashboard");
+    }
+  }, [status, router]);
+
   return (
     <div className="flex h-screen items-center justify-center">
-      <Card className="mx-auto max-w-xs md:max-w-lg">
+      <Card className="mx-auto max-w-xs shadow-lg md:max-w-lg">
         <CardHeader>
           <h1
             className="animate-fade-up pb-10 text-left text-3xl font-extrabold tracking-tight"
