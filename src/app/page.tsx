@@ -3,7 +3,7 @@
 import Balancer from "react-wrap-balancer";
 import { siteConfig } from "@/config/site-config";
 import { SiteHeader } from "@/components/layouts/site-header";
-import LoginButton from "@/components/loginButton";
+import RedirectButton from "@/components/redirectButton";
 
 export default function Home() {
   return (
@@ -32,7 +32,7 @@ export default function Home() {
           <Balancer>{siteConfig.description}</Balancer>
         </div>
         <div>
-          <LoginButton text="Get started" className="text-lg"/>
+          <RedirectButton redirect="/login" text="Get started" className="text-lg"/>
         </div>
       </section>
     </main>
