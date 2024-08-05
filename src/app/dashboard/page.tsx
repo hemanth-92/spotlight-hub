@@ -44,6 +44,9 @@ const numberOfCards = 40;
 const Dashboard = () => {
   const { data: session } = useSession();
   const router = useRouter();
+  const handleDocsClick = () => {
+    router.push("/");
+  };
 
   return (
     <div className="grid h-screen w-full overflow-hidden md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
@@ -235,7 +238,7 @@ const Dashboard = () => {
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>Settings</DropdownMenuItem>
                 <DropdownMenuItem>Support</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push("/")}>
+                <DropdownMenuItem onClick={handleDocsClick}>
                   Docs
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
