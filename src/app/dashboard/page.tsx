@@ -3,7 +3,6 @@
 import Link from "next/link";
 import {
   Bell,
-  CircleUser,
   Home,
   LineChart,
   Menu,
@@ -38,12 +37,13 @@ import { ModeToggle } from "@/components/toggle-theme";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import withAuth from "@/components/withAuth";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const numberOfCards = 40;
 
 const Dashboard = () => {
   const { data: session } = useSession();
+  const router = useRouter();
 
   return (
     <div className="grid h-screen w-full overflow-hidden md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
@@ -112,7 +112,8 @@ const Dashboard = () => {
               </CardHeader>
               <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
                 <Button size="sm" className="w-full">
-                  Upgrade
+                 
+                Docs Upgrade
                 </Button>
               </CardContent>
             </Card>
@@ -234,7 +235,9 @@ const Dashboard = () => {
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>Settings</DropdownMenuItem>
                 <DropdownMenuItem>Support</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => redirect("/")}>Docs</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => router.push("/")}>
+                  Docs
+                </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={() => signOut({ callbackUrl: "/" })}>
                   Logout
