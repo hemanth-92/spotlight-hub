@@ -115,8 +115,7 @@ const Dashboard = () => {
               </CardHeader>
               <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
                 <Button size="sm" className="w-full">
-                 
-                Docs Upgrade
+                  Upgrade
                 </Button>
               </CardContent>
             </Card>
@@ -233,7 +232,7 @@ const Dashboard = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-20">
                 <DropdownMenuLabel className="truncate">
-                  {session?.user?.name}
+                  {session?.user?.username}
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>Settings</DropdownMenuItem>
