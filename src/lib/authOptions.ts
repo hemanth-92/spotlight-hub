@@ -11,15 +11,6 @@ export const authOptions: NextAuthOptions = {
     GithubProvider({
       clientId: env.NEXT_PUBLIC_GITHUB_CLIENT_ID,
       clientSecret: env.NEXT_PUBLIC_GITHUB_CLIENT_SECRET,
-      profile(profile) {
-        return {
-          id: profile.id.toString(),
-          name: profile.name || profile.login,
-          email: profile.email,
-          image: profile.avatar_url,
-          username: profile.login, // Add this line to include the username
-        };
-      },
     }),
   ],
   callbacks: {
@@ -30,16 +21,20 @@ export const authOptions: NextAuthOptions = {
     },
     async signIn({ user, account, profile, email, credentials }) {
       user.oauthToken = account?.access_token;
+      user.username = profile?.login;
+      console.log(profile);
       return true;
     },
     async jwt({ token, user }) {
       if (user) {
         token.oauthToken = user.oauthToken;
+        token.username = user.username;
       }
       return token;
     },
     async session({ session, token }) {
       session.oauthToken = token.oauthToken;
+      session.user.username = token.username;
       return session;
     },
   },

@@ -232,7 +232,7 @@ const Dashboard = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-20">
                 <DropdownMenuLabel className="truncate">
-                  {session?.user?.name}
+                  {session?.user?.username}
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>Settings</DropdownMenuItem>
