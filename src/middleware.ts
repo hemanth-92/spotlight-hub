@@ -7,8 +7,11 @@ export async function middleware(req: NextRequest) {
   if (token && req.nextUrl.pathname === "/login") {
     return NextResponse.redirect(new URL("/dashboard", req.url));
   }
+  if (!token && req.nextUrl.pathname === "/dashboard") {
+    return NextResponse.redirect(new URL("/login", req.url));
+  }
 
   return NextResponse.next();
 }
 
-export const config = { matcher: ["/login", "/dashboard"] };
+export const config = { matcher: ["/login", "/dashboard:page"] };
