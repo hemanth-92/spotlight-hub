@@ -13,6 +13,9 @@ export const authOptions: NextAuthOptions = {
       clientSecret: env.NEXT_PUBLIC_GITHUB_CLIENT_SECRET,
     }),
   ],
+  pages: {
+    signIn: "/login",
+  },
   callbacks: {
     async redirect({ url, baseUrl }) {
       if (url.startsWith("/")) return `${baseUrl}${url}`;
