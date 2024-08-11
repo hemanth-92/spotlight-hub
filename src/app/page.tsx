@@ -32,7 +32,11 @@ export default function Home() {
           <Balancer>{siteConfig.description}</Balancer>
         </div>
         <div>
-          <RedirectButton redirect="/login" text="Get started" className="text-lg"/>
+          <RedirectButton
+            redirect="/login"
+            text="Get started"
+            className="text-lg"
+          />
         </div>
       </section>
     </main>
