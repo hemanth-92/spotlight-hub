@@ -33,7 +33,7 @@ export default function Home() {
         </div>
         <div>
           <RedirectButton
-            redirect="/login"
+            redirect="/dashboard"
             text="Get started"
             className="text-lg"
           />
