@@ -53,7 +53,7 @@ export const SiteHeader = () => {
           </div>
           <div className="xs:gap-2 flex items-center gap-2">
             <SearchPopOver />
-            <RedirectButton redirect="/login" text="Sign in" className="h-6" />
+            <RedirectButton redirect="/dashboard" text="Sign in" className="h-6" />
             <div className="xs:hidden flex">
               <ModeToggle />
             </div>
