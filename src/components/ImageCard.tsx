@@ -186,7 +186,7 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <p
-                          className="ellipsis truncate"
+                          className="max-w-[19ch] ellipsis truncate overflow-hidden"
                           onDoubleClick={handleEditClick}
                         >
                           {content}
