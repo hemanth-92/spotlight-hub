@@ -17,6 +17,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
+import { Button } from "./ui/button";
 
 interface ImageCardProps {
   ImageUrl: string;
@@ -85,7 +87,7 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
   return (
     <div
       className={cn(
-        "flex flex-col rounded-xl bg-muted/50 shadow-lg",
+        "flex flex-col rounded-xl bg-muted/50 shadow-lg border-transparen border-2 hover:shadow-none hover:border-red-500 hover:cursor-pointer transform-gpu hover:scale-[1.05] ease-out content-box",
         className,
       )}
     >
@@ -158,10 +160,10 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
             .png
           </div>
         </div>
-        <div className="mt-4 flex w-full justify-between p-2">
-          <div className="flex w-7/12 gap-1">
-            <div className="flex items-center text-muted-foreground">alt</div>
-            <div className="flex items-center overflow-y-hidden pt-0.5 text-sm text-foreground">
+        {/* <div className="text-muted-foreground">alt</div> */}
+        <div className="flex w-full justify-between pr-2">
+          <div className="flex w-7/12">
+            <div className="flex items-center overflow-y-hidden pt-0.5 text-xs text-foreground">
               {isEditing ? (
                 <div className="flex w-full items-center">
                   <input
@@ -177,9 +179,18 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
                 </div>
               ) : (
                 <div className="flex w-full items-center">
-                  <p className="">{content}</p>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <p className="truncate ellipsis" onDoubleClick={handleEditClick}>{content}</p>
+                      </TooltipTrigger>
+                      <TooltipContent side="bottom">
+                        <p>Alt text: click to edit.</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                   <button
-                    className="ml-2 rounded p-2"
+                    className="ml-2 rounded pr-2"
                     onClick={handleEditClick}
                     aria-label="Edit content"
                   >
