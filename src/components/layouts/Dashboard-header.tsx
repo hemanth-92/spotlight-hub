@@ -10,7 +10,6 @@ import {
 } from "../ui/dropdown-menu";
 import {
   Menu,
-  Link,
   Lightbulb,
   Home,
   ShoppingCart,
@@ -33,6 +32,7 @@ import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 
 export default function DashboardHeader() {
   const { data: session } = useSession();
