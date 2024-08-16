@@ -85,7 +85,7 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
   return (
     <div
       className={cn(
-        "flex flex-col rounded-xl bg-muted/50 shadow-lg",
+        "flex flex-col rounded-xl bg-muted/50 shadow-lg border-transparen border-2 hover:shadow-none hover:border-red-500 hover:cursor-pointer transform-gpu hover:scale-[1.05] ease-out content-box",
         className,
       )}
     >
