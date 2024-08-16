@@ -1,13 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Home,
-  LineChart,
-  Package,
-  ShoppingCart,
-  Users,
-} from "lucide-react";
+import { Home, LineChart, Package, ShoppingCart, Users } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -24,17 +18,15 @@ import DashboardHeader from "@/components/layouts/Dashboard-header";
 const numberOfCards = 40;
 
 const Dashboard = () => {
-
-
   return (
     <div className="flex h-screen flex-col">
-      <DashboardHeader/>
-      
+      <DashboardHeader />
+
       <main className="grid h-screen w-full overflow-hidden md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
         <div className="hidden border-r bg-background md:block">
           <div className="flex h-full max-h-screen flex-col gap-2">
-            <div className="flex-1 py-4 px-2">
-              <nav className="grid items-start px-2 text-md font-medium lg:px-4">
+            <div className="flex-1 px-2 py-4">
+              <nav className="text-md grid items-start px-2 font-medium lg:px-4">
                 <Link
                   href="#"
                   className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:bg-muted hover:text-primary"
@@ -95,7 +87,10 @@ const Dashboard = () => {
         </div>
         <div className="grid flex-1 grid-cols-1 gap-8 overflow-y-auto bg-background p-4 shadow-lg sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Array.from({ length: numberOfCards }, (_, index) => (
-            <div key={index} className="flex items-center justify-center shadow-lg shadow-lg-invert">
+            <div
+              key={index}
+              className="shadow-lg-invert flex items-center justify-center"
+            >
               <ImageCard ImageUrl={`/github.jpeg`} />
             </div>
           ))}
