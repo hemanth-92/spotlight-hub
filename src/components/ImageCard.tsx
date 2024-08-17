@@ -174,7 +174,7 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
                     value={content}
                     onChange={handleChange}
                     onKeyDown={handleKeyDown}
-                    className="w-9/12 bg-transparent text-foreground"
+                    className="max-w-[14.9ch] bg-transparent text-foreground"
                     aria-label="Edit content"
                     ref={inputRef}
                   />
