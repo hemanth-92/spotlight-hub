@@ -85,11 +85,11 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="grid flex-1 grid-cols-1 gap-8 overflow-y-auto bg-background p-4 shadow-lg sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid flex-1 grid-cols-1 gap-8 rounded-md overflow-y-auto bg-background p-4 shadow-lg sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Array.from({ length: numberOfCards }, (_, index) => (
             <div
               key={index}
-              className="shadow-lg-invert flex items-center justify-center"
+              className="shadow-lg-invert"
             >
               <ImageCard ImageUrl={`/github.jpeg`} />
             </div>
