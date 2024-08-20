@@ -91,17 +91,17 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
   return (
     <div
       className={cn(
-        "border-transparent content-box flex transform-gpu flex-col rounded-xl border-2 bg-muted/50 shadow-lg ease-out hover:scale-[1.05] hover:cursor-pointer hover:border-red-500 hover:shadow-none",
+        "border-transparent box-content flex transform-gpu flex-col rounded-xl border-2 bg-muted/50 shadow-lg ease-out hover:scale-[1.05] hover:cursor-pointer hover:border-red-500 hover:shadow-none",
         className,
       )}
     >
-      <div className="relative">
+      <div className="relative w-full h-56">
         <Image
           src={ImageUrl}
           alt="logo"
-          width={300}
-          height={300}
-          className="h-52 rounded-t-xl object-cover"
+          layout="fill"
+          objectFit="cover"
+          className="h-52 rounded-t-xl aspect-[3/4]"
         />
         <div className="absolute right-2 top-2 z-10 flex space-x-2">
           <button

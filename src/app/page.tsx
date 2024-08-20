@@ -35,6 +35,8 @@ export default function Home() {
           <RedirectButton
             redirect="/dashboard"
             text="Get started"
+            icon={<></>}
+            bool={false}
             className="text-lg"
           />
         </div>
