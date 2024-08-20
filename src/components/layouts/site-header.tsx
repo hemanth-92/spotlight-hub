@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Icons } from "../icons";
+import { LogIn } from "lucide-react";
 import { Balancer } from "react-wrap-balancer";
 import { siteConfig } from "@/config/site-config";
 import { ModeToggle } from "../toggle-theme";
@@ -9,7 +10,7 @@ import { SearchPopOver } from "../search";
 import { Pages } from "@/config/docs-config";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { Menu } from "lucide-react";
 import { SideBar } from "../side-bar";
@@ -17,6 +18,14 @@ import RedirectButton from "../redirectButton";
 
 export const SiteHeader = () => {
   const pathname = usePathname();
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <header className="fixed left-0 top-0 z-10 w-full">
       {pathname === "/" && <></>}
@@ -53,7 +62,13 @@ export const SiteHeader = () => {
           </div>
           <div className="xs:gap-2 flex items-center gap-2">
             <SearchPopOver />
-            <RedirectButton redirect="/dashboard" text="Sign in" className="h-6" />
+            <RedirectButton
+              redirect="/dashboard"
+              text="Sign in"
+              icon={<LogIn className="text-xs" />}
+              bool={isSmallScreen}
+              className="h-6"
+            />
             <div className="xs:hidden flex">
               <ModeToggle />
             </div>
