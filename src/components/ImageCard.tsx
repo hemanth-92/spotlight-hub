@@ -11,6 +11,7 @@ import {
   Edit,
   Pencil,
 } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import { SetStateAction, useState, useRef, useEffect } from "react";
 import {
   Popover,
@@ -91,17 +92,17 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
   return (
     <div
       className={cn(
-        "border-transparent box-content flex transform-gpu flex-col rounded-xl border-2 bg-muted/50 shadow-lg ease-out hover:scale-[1.05] hover:cursor-pointer hover:border-red-500 hover:shadow-none",
+        "box-content flex transform-gpu flex-col rounded-xl border-2 border-transparent bg-muted/50 shadow-lg ease-out hover:scale-[1.05] hover:cursor-pointer hover:border-red-500 hover:shadow-none",
         className,
       )}
     >
-      <div className="relative w-full h-56">
+      <div className="relative h-56 w-full">
         <Image
           src={ImageUrl}
           alt="logo"
           layout="fill"
           objectFit="cover"
-          className="h-52 rounded-t-xl aspect-[3/4]"
+          className="aspect-[3/4] h-52 rounded-t-xl"
         />
         <div className="absolute right-2 top-2 z-10 flex space-x-2">
           <button
@@ -164,17 +165,17 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
             .png
           </div>
         </div>
-        <div className="flex w-full justify-between pr-2">
+        <div className="flex w-full justify-between px-3">
           <div className="flex w-7/12">
             <div className="flex items-center overflow-y-hidden pt-0.5 text-xs text-foreground">
               {isEditing ? (
                 <div className="flex w-full items-center">
-                  <input
+                  <Input
                     type="text"
                     value={content}
                     onChange={handleChange}
                     onKeyDown={handleKeyDown}
-                    className="max-w-[14.9ch] bg-transparent text-foreground"
+                    className="h-auto max-w-[14.9ch] border-b border-x-0 border-t-0 rounded-none border-primary bg-transparent p-0 text-xs text-foreground focus-visible:ring-0 focus-visible:ring-offset-0"
                     aria-label="Edit content"
                     ref={inputRef}
                   />
@@ -186,7 +187,7 @@ export default function ImageCard({ ImageUrl, className }: ImageCardProps) {
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <p
-                          className="max-w-[19ch] ellipsis truncate overflow-hidden"
+                          className="ellipsis max-w-[19ch] overflow-hidden truncate"
                           onDoubleClick={handleEditClick}
                         >
                           {content}
