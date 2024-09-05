@@ -4,14 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Plus, Settings } from "lucide-react";
 import React from "react";
 import { Icons } from "@/components/icons";
-import DashboardHeader from "@/components/layouts/Dashboard-header";
 
 export default function Board() {
   return (
-    <div className="mx-auto flex w-full flex-col">
-      <div>
-        <DashboardHeader />
-      </div>
+    <div>
       <div className="mx-auto flex w-full items-center justify-between p-4">
         <div className="text-2xl">Your Apps</div>
         <div>
@@ -28,14 +24,10 @@ export default function Board() {
           </div>
           <div className="bg-muted/50 p-5">
             <div className="mb-2 flex items-center justify-between">
-              <span className="text-lg font-semibold">
-                test
-              </span>
+              <span className="text-lg font-semibold">test</span>
               <Settings className="h-5 w-5 cursor-pointer" />
             </div>
-            <div className="mb-4">
-              User name
-            </div>
+            <div className="mb-4">User name</div>
           </div>
         </div>
       </div>
