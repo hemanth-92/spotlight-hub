@@ -2,13 +2,11 @@
 
 import Balancer from "react-wrap-balancer";
 import { siteConfig } from "@/config/site-config";
-import { SiteHeader } from "@/components/layouts/site-header";
 import RedirectButton from "@/components/redirectButton";
 
 export default function Home() {
   return (
     <main className="mx-auto flex max-w-2xl flex-1 flex-col">
-      <SiteHeader />
 
       <section className="flex flex-1 flex-col items-center justify-center gap-4">
         <h1

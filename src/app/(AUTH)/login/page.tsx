@@ -9,12 +9,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Balancer from "react-wrap-balancer";
-import { signIn, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { signIn } from "next-auth/react";
 
 export default function Login() {
-
   return (
     <div className="flex h-screen items-center justify-center">
       <Card className="mx-auto max-w-xs shadow-lg md:max-w-lg">

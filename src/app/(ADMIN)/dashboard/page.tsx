@@ -13,15 +13,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import ImageCard from "@/components/ImageCard";
-import DashboardHeader from "@/components/layouts/Dashboard-header";
 
 const numberOfCards = 40;
 
 const Dashboard = () => {
   return (
-    <div className="flex h-screen flex-col">
-      <DashboardHeader />
-
       <main className="grid h-screen w-full overflow-hidden md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
         <div className="hidden border-r bg-background md:block">
           <div className="flex h-full max-h-screen flex-col gap-2">
@@ -78,14 +74,14 @@ const Dashboard = () => {
                 </CardHeader>
                 <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
                   <Button size="sm" className="w-full">
-                    Docs Upgrade
+                    Upgrade
                   </Button>
                 </CardContent>
               </Card>
             </div>
           </div>
         </div>
-        <div className="grid flex-1 grid-cols-1 gap-8 rounded-md overflow-y-auto bg-background p-4 shadow-lg sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid flex-1 grid-cols-1 gap-8 rounded-md overflow-y-auto bg-background px-6 py-4 sm:p-4 shadow-lg sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Array.from({ length: numberOfCards }, (_, index) => (
             <div
               key={index}
@@ -96,7 +92,6 @@ const Dashboard = () => {
           ))}
         </div>
       </main>
-    </div>
   );
 };
 
